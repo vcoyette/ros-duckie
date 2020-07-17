@@ -1,0 +1,14 @@
+<launch>
+
+
+  <group ns="$(arg veh)">  
+
+    <node pkg="my_package" type="camera_node.py" name="camera" output="screen"/>
+    <node pkg="my_package" type="motor_node.py" name="motor" output="screen">
+        <remap from="~velocities" to="/$(arg veh)/actor/velocities"/>
+    </node>
+
+
+  </group>  
+
+</launch>
