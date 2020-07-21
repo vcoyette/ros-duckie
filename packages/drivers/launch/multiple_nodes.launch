@@ -1,0 +1,14 @@
+<launch>
+
+
+  <group ns="$(arg veh)">  
+
+    <node pkg="drivers" type="camera_node.py" name="camera" output="screen"/>
+    <node pkg="drivers" type="motor_node.py" name="motor" output="screen">
+        <remap from="~velocities" to="/$(arg veh)/controller/velocities"/>
+    </node>
+
+
+  </group>  
+
+</launch>
