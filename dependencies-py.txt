@@ -1,1 +1,5 @@
 Adafruit-MotorHAT
+pyyaml
+rospkg
+picamera
+numpy

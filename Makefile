@@ -8,4 +8,4 @@ build:
 	docker -H ${HOST} build -t ${CONTAINER_NAME}:${VERSION} .
 
 run:
-	docker -H ${HOST} run -it --rm --privileged --net=host ${CONTAINER_NAME}:${VERSION}
+	docker -H ${HOST} run -it --rm --privileged --net=host -v /opt/vc:/opt/vc ${CONTAINER_NAME}:${VERSION}

@@ -14,11 +14,11 @@ class Motors:
                signal is sent.
     """
 
-    LEFT_MOTOR_MIN_PWM = 60        #: Minimum speed for left motor
-    LEFT_MOTOR_MAX_PWM = 255       #: Maximum speed for left motor
-    RIGHT_MOTOR_MIN_PWM = 60       #: Minimum speed for right motor
-    RIGHT_MOTOR_MAX_PWM = 255      #: Maximum speed for right motor
-    SPEED_TOLERANCE = 1.e-2        #: Speed tolerance level
+    LEFT_MOTOR_MIN_PWM = 60  #: Minimum speed for left motor
+    LEFT_MOTOR_MAX_PWM = 255  #: Maximum speed for left motor
+    RIGHT_MOTOR_MIN_PWM = 60  #: Minimum speed for right motor
+    RIGHT_MOTOR_MAX_PWM = 255  #: Maximum speed for right motor
+    SPEED_TOLERANCE = 1.0e-2  #: Speed tolerance level
 
     def __init__(self, debug=False):
 
@@ -52,15 +52,14 @@ class Motors:
         vl = self.leftSpeed
         vr = self.rightSpeed
 
-        pwml = self.PWMvalue(vl,
-                             self.LEFT_MOTOR_MIN_PWM,
-                             self.LEFT_MOTOR_MAX_PWM)
-        pwmr = self.PWMvalue(vr,
-                             self.RIGHT_MOTOR_MIN_PWM,
-                             self.RIGHT_MOTOR_MAX_PWM)
+        pwml = self.PWMvalue(vl, self.LEFT_MOTOR_MIN_PWM, self.LEFT_MOTOR_MAX_PWM)
+        pwmr = self.PWMvalue(vr, self.RIGHT_MOTOR_MIN_PWM, self.RIGHT_MOTOR_MAX_PWM)
 
         if self.debug:
-            print ("v = %5.3f, u = %5.3f, vl = %5.3f, vr = %5.3f, pwml = %3d, pwmr = %3d" % (v, u, vl, vr, pwml, pwmr))
+            print(
+                "v = %5.3f, u = %5.3f, vl = %5.3f, vr = %5.3f, pwml = %3d, pwmr = %3d"
+                % (v, u, vl, vr, pwml, pwmr)
+            )
 
         if fabs(vl) < self.SPEED_TOLERANCE:
             leftMotorMode = Adafruit_MotorHAT.RELEASE
