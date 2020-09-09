@@ -32,8 +32,8 @@ CMD ["bash", "-c", "./src/launch.sh"]
 # Usefull for picamera to work
 ENV LD_LIBRARY_PATH=/opt/vc/lib
 
-# store module name
-ENV ROS_MASTER_URI "http://127.20.10.10:11311/"
+# IP
 ENV ROS_IP "192.168.43.99"
+ENV ROS_MASTER_URI "http://127.20.10.10:11311/"
 
 
