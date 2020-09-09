@@ -16,7 +16,7 @@ ping mobyduck.local
 ```
 (replace mopbyduck with the hostname of your duckie).
 
-Store this ip, we will refer to it as ROS_IP later.
+Store this ip, we will refer to it as DUCKIE_IP later.
 
 
 Usage:
@@ -28,7 +28,7 @@ make build
 
 2. Run it using:
 ```bash
-make run duckie_ip=ROS_IP
+make run duckie_ip=DUCKIE_IP
 ```
-replace ROS_IP with the
+replace DUCKIE_IP with the
 

@@ -1,17 +1,18 @@
-from Adafruit_MotorHAT import Adafruit_MotorHAT
 from math import fabs, floor
 from time import sleep
+
+from Adafruit_MotorHAT import Adafruit_MotorHAT
 
 
 class Motors:
     """Class handling communication with motors.
-        Wraps the Adafruit API to talk to DC motors with a simpler interface.
-        The class contains methods for creating PWM signals according to
-        requested velocities. Also contains hardware addresses related to the
-        motors.
-        Args:
-            debug (:obj:`bool`): If `True`, will print a debug message every time a PWM
-               signal is sent.
+    Wraps the Adafruit API to talk to DC motors with a simpler interface.
+    The class contains methods for creating PWM signals according to
+    requested velocities. Also contains hardware addresses related to the
+    motors.
+    Args:
+        debug (:obj:`bool`): If `True`, will print a debug message every time a PWM
+           signal is sent.
     """
 
     LEFT_MOTOR_MIN_PWM = 60  #: Minimum speed for left motor
@@ -33,10 +34,10 @@ class Motors:
 
     def PWMvalue(self, v, minPWM, maxPWM):
         """Transforms the requested speed into an int8 number.
-            Args:
-                v (:obj:`float`): requested speed, should be between -1 and 1.
-                minPWM (:obj:`int8`): minimum speed as int8
-                maxPWM (:obj:`int8`): maximum speed as int8
+        Args:
+            v (:obj:`float`): requested speed, should be between -1 and 1.
+            minPWM (:obj:`int8`): minimum speed as int8
+            maxPWM (:obj:`int8`): maximum speed as int8
         """
         pwm = 0
         if fabs(v) > self.SPEED_TOLERANCE:
@@ -45,9 +46,9 @@ class Motors:
 
     def updatePWM(self):
         """Sends commands to the microcontroller.
-            Updates the current PWM signals (left and right) according to the
-            linear velocities of the motors. The requested speed gets
-            tresholded.
+        Updates the current PWM signals (left and right) according to the
+        linear velocities of the motors. The requested speed gets
+        tresholded.
         """
         vl = self.leftSpeed
         vr = self.rightSpeed
@@ -95,7 +96,7 @@ class Motors:
 
     def __del__(self):
         """Destructor method.
-            Releases the motors and deletes tho object.
+        Releases the motors and deletes tho object.
         """
         self.leftMotor.run(Adafruit_MotorHAT.RELEASE)
         self.rightMotor.run(Adafruit_MotorHAT.RELEASE)
